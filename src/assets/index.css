@@ -20,6 +20,15 @@ hr{
 	background-image: -ms-linear-gradient(left, #fff, #000, #fff);
 	background-image: -o-linear-gradient(left, #fff, #000, #fff);
 }
+header, footer, .block .string{ display: flex; }
+header{
+	align-items: center;
+	justify-content: space-evenly;
+}
+footer{
+	flex-direction: column;
+	align-items: center;
+}
 a{ color: #459EBC; }
 .logo{
 	font-size:24pt;
@@ -28,9 +37,9 @@ a{ color: #459EBC; }
 	display: inline-block;
 	vertical-align: center;
 }
-.info i{
+.info{
 	color: gray;
-	fint-style: italic;
+	font-style: italic;
 	font-size:8pt;
 }
 .content{
@@ -72,13 +81,16 @@ legend{
 	margin: 10px;
 	text-align: left;
 }
+.block .string{
+	justify-content: space-between;
+	align-items: center;
+}
 input[type="text"]{
 	border: none;
 	padding: 3px;
 	background: white;
 }
 input[type="button"], input[type="submit"]{ transition: none; }
-input[type=checkbox]{ display: none; }
 
 .valgreen{
 	text-shadow:0px 0px 5px #61FF62;
@@ -112,3 +124,76 @@ input[type=checkbox]{ display: none; }
 	.menu .a {display: block; width: 95%; margin: auto; margin-bottom: 5px;}
 }
 */
+
+
+
+
+/* Checkboxes */
+input[type="checkbox"] {
+	width: 32px;
+	height: 16px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background: #c6c6c6;
+	outline: none;
+	border-radius: 50px;
+	box-shadow: inset 0 0 5px rgba(0,0,0, .2);
+	transition: 0.5s;
+	position: relative;
+	cursor: pointer;
+}
+input:checked[type="checkbox"] {
+	background: #02a9f4;
+}
+input[type="checkbox"]::before {
+	content: '';
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	top: 0;
+	left: 0;
+	background: #fff;
+	transform: scale(1.1);
+	box-shadow: 0 2px 5px rgba(0,0,0, .2);
+	transition: 0.5s;
+}
+input:checked[type="checkbox"]::before {
+	left: 16px;
+}
+
+
+/* switchStyle1 */
+input[type="checkbox"].switchStyle1{
+	border-radius: unset;
+	background: #fff;
+	border: 1px solid #bd2327;
+	width: 34px;
+	height: 18px;
+}
+input[type="checkbox"].switchStyle1::before{
+	border-radius: unset;
+	background: #bd2327;
+	width: 12px;
+	height: 12px;
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	content: "";
+	display: block;
+}
+input[type="checkbox"]:checked.switchStyle1{
+	border-color:#6ec331;
+}
+input[type="checkbox"]:checked.switchStyle1::before{
+	background-color:#6ec331;
+	left: 18px;
+}
+
+input[type="checkbox"].switchStyle1.loading{
+	border-color:#ff8f00;
+}
+input[type="checkbox"].switchStyle1.loading::before{
+	background-color:#ff8f00;
+	left: 10px;
+}

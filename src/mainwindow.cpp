@@ -116,18 +116,20 @@ void MainWindow::slot_generate()
 	outputFile.close();
 
 	//Zipping...
-	if( !outputFile.open( QIODevice::ReadOnly ) ) return;
-	if( !outputFileGZ.open( QIODevice::WriteOnly ) ) return;
+	if( ui->compressCB->isChecked() ){
+		if( !outputFile.open( QIODevice::ReadOnly ) ) return;
+		if( !outputFileGZ.open( QIODevice::WriteOnly ) ) return;
 
-	while( !outputFile.atEnd() ){
-		QByteArray buffer = outputFile.read( 1024 );
-		QByteArray compressed;
-		QCompressor::gzipCompress( buffer, compressed, 9 );
-		outputFileGZ.write( compressed );
+		while( !outputFile.atEnd() ){
+			QByteArray buffer = outputFile.read( 1024 );
+			QByteArray compressed;
+			QCompressor::gzipCompress( buffer, compressed, 9 );
+			outputFileGZ.write( compressed );
+		}
+
+		outputFile.close();
+		outputFileGZ.close();
 	}
-
-	outputFile.close();
-	outputFileGZ.close();
 
 	QMessageBox::information( this, app::conf.appName, tr( "Generation complete." ) );
 }
