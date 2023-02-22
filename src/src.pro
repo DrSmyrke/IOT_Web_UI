@@ -1,9 +1,10 @@
-QT       += core gui network
+QT       += core gui network quick qml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = generatorUI
-CONFIG += c++11
+CONFIG += c++17
+CONFIG += warn_off
 
 CONFIG(debug, debug|release):CONFIGURATION=debug
 
