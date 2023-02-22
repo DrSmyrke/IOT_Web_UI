@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>lang/ru_RU.qm</file>
+        <file>index.ico</file>
+        <file>assets/bottom.html</file>
+        <file>assets/index.css</file>
+        <file>assets/index.js</file>
+        <file>assets/logo.png</file>
+        <file>assets/top.html</file>
+    </qresource>
+</RCC>
